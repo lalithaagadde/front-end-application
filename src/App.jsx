@@ -1,3 +1,5 @@
+import './App.css'
+
 function App() {
 
   function handleDelete() {
@@ -14,7 +16,8 @@ function App() {
 
   return (
     <>
-    <div>
+    <div className='container'>
+    <div className='container'>
             <h1>Customer List</h1>
             <table>
                 <tr>
@@ -38,8 +41,11 @@ function App() {
                     <td>gleng</td>
                 </tr>
             </table>
-        </div>
-    <div>
+      </div>
+
+    
+
+    <div className='container'>
     <h2>Update</h2>
     <form>
       <div>
@@ -52,14 +58,14 @@ function App() {
       <div>
         <label>
           Email: 
-          <input type='text' name='email' placeholder='Customer email'></input>
+          <input type='text' name='email' placeholder='name@company.com'></input>
         </label>
       </div>
 
       <div>
         <label>
           Password: 
-          <input type='text' name='password' placeholder='Customer password'></input>
+          <input type='text' name='password' placeholder='password'></input>
         </label>
       </div>
 
@@ -70,6 +76,7 @@ function App() {
       </div>
 
     </form>
+  </div>
   </div>
     </>
   )
