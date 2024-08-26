@@ -15,6 +15,31 @@ function App() {
   return (
     <>
     <div>
+            <h1>Customer List</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+                <tr>
+                    <td>Jack Jackson</td>
+                    <td>jackj@abc.com</td>
+                    <td>jackj</td>
+                </tr>
+                <tr>
+                    <td>Katie Kates</td>
+                    <td>katiek@abc.com</td>
+                    <td>katiek</td>
+                </tr>
+                <tr>
+                    <td>Glen Glenns</td>
+                    <td>gleng@abc.com</td>
+                    <td>gleng</td>
+                </tr>
+            </table>
+        </div>
+    <div>
     <h2>Update</h2>
     <form>
       <div>
