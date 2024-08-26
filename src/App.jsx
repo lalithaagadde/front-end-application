@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import './App.css'
+import { getAll, get, deleteById, post, put } from './memdb'
+
 
 function App() {
+
+
+  const [customers, setAllCustomers] = useState([]);
+  
 
   function handleDelete() {
     console.log("in onDeleteClick()");
@@ -14,34 +21,36 @@ function App() {
     console.log("in onCancelClick()");
   }
 
+  function handleListClick() {
+    console.log("in handleListClick()");
+  }
+
   return (
     <>
     <div className='container'>
+
     <div className='container'>
             <h1>Customer List</h1>
             <table>
+
               <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                </tr></thead>
-                <tbody>
-                <tr>
-                    <td>Jack Jackson</td>
-                    <td>jackj@abc.com</td>
-                    <td>jackj</td>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Password</th>
                 </tr>
-                <tr>
-                    <td>Katie Kates</td>
-                    <td>katiek@abc.com</td>
-                    <td>katiek</td>
-                </tr>
-                <tr>
-                    <td>Glen Glenns</td>
-                    <td>gleng@abc.com</td>
-                    <td>gleng</td>
-                </tr></tbody>
+              </thead>
+
+              <tbody>
+                {customers.map((customer, index) => (
+                  <tr key={index} onClick={() => handleListClick()}>
+                    <td>{customer.name}</td>
+                    <td>{customer.email}</td>
+                    <td>{customer.password}</td>
+                  </tr>
+                ))}
+
+              </tbody>
             </table>
       </div>
 
