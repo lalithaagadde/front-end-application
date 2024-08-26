@@ -4,7 +4,7 @@ import './App.css'
 import { getAll, get, deleteById, post, put } from './memdb'
 
 function App() {
-  const [selectRow, setSelectRow] = useState();
+  const [selectRow, setSelectRow] = useState(null);
   const [customers, setAllCustomers] = useState([]);
   const [selectCustomer, setSelectCustomer] = useState({
     name: '',
@@ -88,7 +88,7 @@ function App() {
     
 
     <div className='container'>
-    <h2>Update</h2>
+    <h2>{selectRow !== null ? "Update": "Add"}</h2>
     <form>
       <div>
         <label>
