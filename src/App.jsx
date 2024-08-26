@@ -1,12 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import './App.css'
 import { getAll, get, deleteById, post, put } from './memdb'
 
-
 function App() {
-
+  const [selectRow, setSelectRow] = useState();
   const [customers, setAllCustomers] = useState([]);
-  
 
   function handleDelete() {
     console.log("in onDeleteClick()");
@@ -20,12 +19,12 @@ function App() {
     console.log("in onCancelClick()");
   }
 
-  function handleListClick() {
-    console.log("in handleListClick()");
-  }
-
   const getCustomers = () => {
     setAllCustomers(getAll());
+  }
+
+  function handleListClick(index){
+    setSelectRow(index);
   }
 
   useEffect(() => {
@@ -50,7 +49,7 @@ function App() {
 
               <tbody>
                 {customers.map((customer, index) => (
-                  <tr key={index} onClick={() => handleListClick()}>
+                  <tr key={index} onClick={() => handleListClick(index)} className={selectRow === index ? 'selected-row' : ''}>
                     <td>{customer.name}</td>
                     <td>{customer.email}</td>
                     <td>{customer.password}</td>

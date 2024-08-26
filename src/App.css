@@ -37,6 +37,10 @@
     background-color: #fff;
   }
   
+  .selected-row {
+    font-weight: bold;
+  }
+  
   form {
     margin-top: 10px;
   }
