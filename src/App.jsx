@@ -4,6 +4,11 @@ import './App.css'
 import { getAll, get, deleteById, post, put } from './memdb'
 
 function App() {
+
+  useEffect(() => {
+    getCustomers();
+  }, []);
+
   const [selectRow, setSelectRow] = useState(null);
   const [customers, setAllCustomers] = useState([]);
   const [selectCustomer, setSelectCustomer] = useState({
@@ -12,8 +17,11 @@ function App() {
     password: ''
   });
 
-  function handleDelete() {
+  function handleDelete(selectRow) {
     console.log("in onDeleteClick()");
+    console.log(selectRow);
+    deleteById(selectRow);
+    setAllCustomers(getAll());
   }
 
   function handleSave() {
@@ -51,10 +59,6 @@ function App() {
     const { name, value } = e.target;
     setSelectCustomer(prevState => ({...prevState, [name]: value}));
   }
-
-  useEffect(() => {
-    getCustomers();
-  }, [])
 
   return (
     <>
@@ -112,7 +116,7 @@ function App() {
       </div>
 
       <div>
-        <button type='button' onClick={() => handleDelete()}>Delete</button>
+        <button type='button' onClick={() => handleDelete(selectRow)}>Delete</button>
         <button type='button' onClick={() => handleSave()}>Save</button>
         <button type='button' onClick={() => handleCancel()}>Cancel</button>
       </div>
