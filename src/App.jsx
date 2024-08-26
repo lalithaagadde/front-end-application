@@ -21,7 +21,12 @@ function App() {
   }
 
   function handleCancel() {
-    console.log("in onCancelClick()");
+    handleListClick(null);
+    setSelectCustomer({
+      name: '',
+      email: '',
+      password: ''
+    });
   }
 
   const getCustomers = () => {
