@@ -15,8 +15,10 @@ function App() {
   function handleDelete() {
     console.log("in onDeleteClick()");
   }
-
+  const mode = selectCustomer.id >=0 ? "Update" : "Add"
+  
   function handleSave() {
+    if(mode === "Add" ? post(selectRow): put(selectRow))
     console.log("in onSaveClick()");
   }
 
@@ -88,26 +90,26 @@ function App() {
     
 
     <div className='container'>
-    <h2>{selectRow !== null ? "Update": "Add"}</h2>
+    <h2>{mode}</h2>
     <form>
       <div>
         <label>
           Name: 
-          <input  type='text' name='name' placeholder='Customer name' value={selectCustomer.name} onChange={handleInputChange}></input>
+          <input type='text' name='name' placeholder='Customer name' value={selectCustomer.name} onChange={(e) => handleInputChange(e)}></input>
         </label>
       </div>
 
       <div>
         <label>
           Email: 
-          <input type='text' name='email' placeholder='name@company.com' value={selectCustomer.email} onChange={handleInputChange}></input>
+          <input type='text' name='email' placeholder='name@company.com' value={selectCustomer.email} onChange={(e) => handleInputChange(e)}></input>
         </label>
       </div>
 
       <div>
         <label>
           Password: 
-          <input type='text' name='password' placeholder='password' value={selectCustomer.password} onChange={handleInputChange}></input>
+          <input type='text' name='password' placeholder='password' value={selectCustomer.password} onChange={(e) => handleInputChange(e)}></input>
         </label>
       </div>
 
