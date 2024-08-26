@@ -17,11 +17,13 @@ function App() {
     <div>
             <h1>Customer List</h1>
             <table>
+              <thead>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Password</th>
-                </tr>
+                </tr></thead>
+                <tbody>
                 <tr>
                     <td>Jack Jackson</td>
                     <td>jackj@abc.com</td>
@@ -36,7 +38,7 @@ function App() {
                     <td>Glen Glenns</td>
                     <td>gleng@abc.com</td>
                     <td>gleng</td>
-                </tr>
+                </tr></tbody>
             </table>
         </div>
     <div>
