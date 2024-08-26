@@ -6,6 +6,11 @@ import { getAll, get, deleteById, post, put } from './memdb'
 function App() {
   const [selectRow, setSelectRow] = useState();
   const [customers, setAllCustomers] = useState([]);
+  const [selectCustomer, setSelectCustomer] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
 
   function handleDelete() {
     console.log("in onDeleteClick()");
@@ -24,7 +29,22 @@ function App() {
   }
 
   function handleListClick(index){
-    setSelectRow(index);
+    if (selectRow === index) {
+      setSelectRow(null);
+      setSelectCustomer({
+        name: '',
+        email: '',
+        password: ''
+      });
+    } else {
+      setSelectRow(index);
+      setSelectCustomer(customers[index]);
+    }
+  }
+
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setSelectCustomer(prevState => ({...prevState, [name]: value}));
   }
 
   useEffect(() => {
@@ -68,21 +88,21 @@ function App() {
       <div>
         <label>
           Name: 
-          <input type='text' name='name' placeholder='Customer name'></input>
+          <input  type='text' name='name' placeholder='Customer name' value={selectCustomer.name} onChange={handleInputChange}></input>
         </label>
       </div>
 
       <div>
         <label>
           Email: 
-          <input type='text' name='email' placeholder='name@company.com'></input>
+          <input type='text' name='email' placeholder='name@company.com' value={selectCustomer.email} onChange={handleInputChange}></input>
         </label>
       </div>
 
       <div>
         <label>
           Password: 
-          <input type='text' name='password' placeholder='password'></input>
+          <input type='text' name='password' placeholder='password' value={selectCustomer.password} onChange={handleInputChange}></input>
         </label>
       </div>
 
