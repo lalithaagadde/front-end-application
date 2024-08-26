@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 import { getAll, get, deleteById, post, put } from './memdb'
 
 
 function App() {
-
 
   const [customers, setAllCustomers] = useState([]);
   
@@ -24,6 +23,14 @@ function App() {
   function handleListClick() {
     console.log("in handleListClick()");
   }
+
+  const getCustomers = () => {
+    setAllCustomers(getAll());
+  }
+
+  useEffect(() => {
+    getCustomers();
+  }, [])
 
   return (
     <>
