@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import './App.css'
-import { getAll, get, deleteById, post, put } from './memdb'
+import { get, deleteById, post, put } from './memdb'
+import { getAll } from './restdb'
 import CustomerList from './components/CustomerList.jsx'
 import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
 
 function App() {
 
   useEffect(() => {
-    setAllCustomers(getAll());
+    getAll(setAllCustomers)
   }, []);
 
   const [selectRow, setSelectRow] = useState(undefined);
