@@ -1,4 +1,4 @@
-export const CustomerList = (customers) => {
+export default function CustomerList(props){
     return(
         <div className='container'>
           <h1>Customer List</h1>
@@ -11,8 +11,8 @@ export const CustomerList = (customers) => {
               </tr>
             </thead>
             <tbody>
-              {customers.map((customer, index) => (
-                <tr key={index} onClick={() => handleListClick(index, customer.id)} className={selectRow === index ? 'selected-row' : ''}>
+              {props.data.map((customer, index) => (
+                <tr key={index} onClick={() => props.handleListClick(index, customer.id)} className={props.selectedRow === index ? 'selected-row' : ''}>
                   <td>{customer.name}</td>
                   <td>{customer.email}</td>
                   <td>{customer.password}</td>
