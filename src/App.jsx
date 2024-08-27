@@ -36,7 +36,8 @@ function App() {
   }
 
   function handleSave() {
-    if (mode === "Add"){
+    if (selectedCustomer.name !== "" && selectedCustomer.email !== "" && selectedCustomer.password !== "")
+    {if (mode === "Add"){
       post(selectedCustomer)
       setSelectRow(undefined)
       setSelectedCustomer({ name: "", email: "", password: "" })
@@ -51,6 +52,10 @@ function App() {
       setAllCustomers(getAll());
       console.log("Do a put")
     }
+  }
+  else{
+    alert("Your fields cannot be empty!")
+  }
     console.log("in onSaveClick()");
   }
 
