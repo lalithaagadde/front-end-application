@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import './App.css'
-import { get, deleteById, post, put } from './memdb'
-import { getAll } from './restdb'
+import { get, post, put } from './memdb'
+import { getAll, deleteById } from './restdb'
 import CustomerList from './components/CustomerList.jsx'
 import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
 
@@ -26,14 +26,12 @@ function App() {
   console.log({ selectedCustomer });
   console.log({ customers });
   
-  const mode = selectedCustomer.id >= 0 ? "Update" : "Add"
+  const mode = selectedCustomer.id >= 0 ? "Update" : "Add";
 
   function handleDelete(selectRow) {
-    console.log("in onDeleteClick()", selectRow);
-    deleteById(selectRow);
+    deleteById(selectRow, setAllCustomers);
     setSelectRow(undefined)
     setSelectedCustomer({ name: "", email: "", password: "" })
-    setAllCustomers(getAll());
   }
 
   function handleSave() {

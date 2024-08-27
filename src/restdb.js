@@ -1,6 +1,6 @@
 const baseURL = 'http://localhost:4000/customers';
 
-export async function getAll(setCustomers) {
+export async function getAll(setAllCustomers) {
 
     const myInit = {
         method: 'GET',
@@ -13,7 +13,7 @@ export async function getAll(setCustomers) {
             throw new Error(`Error fetching data: ${response.status}`);
             }
             const data = await response.json();
-            setCustomers(data);
+            setAllCustomers(data);
         
         } catch (error) 
         {
@@ -28,4 +28,23 @@ export async function getAll(setCustomers) {
 //TODO: in put(), updates an existing customer
 //TODO: in deleteById(), deletes an existing customer
 
+export async function deleteById(id, setAllCustomers) {
+    const myInit = {
+        method: 'DELETE',
+        mode: 'cors' 
+    };
 
+    const deleteData = async (url) => {
+        try {
+            const response = await fetch(url, myInit);
+            if (!response.ok) {
+            throw new Error(`Error deleting data: ${response.status}`);
+            }
+            getAll(setAllCustomers);
+        } catch (error) 
+        {
+            alert(error);
+        }
+    }
+    deleteData(`${baseURL}/${id}`);
+}
