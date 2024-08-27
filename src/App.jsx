@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.css'
 import { getAll, get, deleteById, post, put } from './memdb'
 //import CustomerList from './components/CustomerList.jsx'
-//import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
+import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
 
 function App() {
 
@@ -107,7 +107,7 @@ function App() {
             </tbody>
           </table>
         </div>
-        <div className='container'>
+        {/* <div className='container'>
           <h2>{mode}</h2>
           <form>
             <div>
@@ -137,10 +137,25 @@ function App() {
             </div>
 
           </form>
-        </div>
+        </div> */}
+
+        <CustomerAddUpdateForm 
+          mode={mode} 
+          selectedCustomerName={selectedCustomer.name} 
+          selectedCustomerEmail={selectedCustomer.email} 
+          handleInputChange = {handleInputChange} 
+          selectedCustomerPassword = {selectedCustomer.password} 
+          handleDelete={handleDelete} 
+          handleSave={handleSave} 
+          handleCancel={handleCancel}
+          arrId={arrId} />
+
       </div>
     </>
   )
+
+  
+
 
 }
 
