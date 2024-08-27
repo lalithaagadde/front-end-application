@@ -26,7 +26,7 @@ export default function CustomerAddUpdateForm(props) {
             </div>
 
             <div>
-              <button type='button' onClick={() => props.handleDelete(props.arrId)}>Delete</button>
+              <button type='button' disabled = {props.mode === "Add"} onClick={() => props.handleDelete(props.arrId)}>Delete</button>
               <button type='button' onClick={() => props.handleSave()}>Save</button>
               <button type='button' onClick={() => props.handleCancel()}>Cancel</button>
             </div>
