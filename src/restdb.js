@@ -25,6 +25,30 @@ export async function getAll(setAllCustomers) {
 }
 
 //TODO: in post(), adds a new customer
+export async function post(newCustomer, setAllCustomers) {
+    const myInit = {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({...newCustomer}),
+        headers: {
+            "Content-type" : "application/json"
+        }
+    };
+
+    const addData = async (url) => {
+        try {
+            const response = await fetch(url, myInit);
+            if (!response.ok) {
+            throw new Error(`Error adding customer: ${response.status}`);
+            }
+            getAll(setAllCustomers);
+        } catch (error) 
+        {
+            alert(error);
+        }
+    }
+    addData(baseURL);
+}
 //TODO: in put(), updates an existing customer
 //TODO: in deleteById(), deletes an existing customer
 

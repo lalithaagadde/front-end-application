@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import './App.css'
-import { get, post, put } from './memdb'
-import { getAll, deleteById } from './restdb'
+import { get, put } from './memdb'
+import { getAll, deleteById, post } from './restdb'
 import CustomerList from './components/CustomerList.jsx'
 import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
 
@@ -37,10 +37,9 @@ function App() {
   function handleSave() {
     if (selectedCustomer.name !== "" && selectedCustomer.email !== "" && selectedCustomer.password !== "")
     {if (mode === "Add"){
-      post(selectedCustomer)
+      post(selectedCustomer, setAllCustomers)
       setSelectRow(undefined)
       setSelectedCustomer({ name: "", email: "", password: "" })
-      setAllCustomers(getAll());
       console.log("Do a post")
     }
     else
