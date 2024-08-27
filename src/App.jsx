@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import './App.css'
 import { getAll, get, deleteById, post, put } from './memdb'
+//import CustomerList from './components/CustomerList.jsx'
+//import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
 
 function App() {
 
