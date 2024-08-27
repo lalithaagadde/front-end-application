@@ -9,7 +9,7 @@ function App() {
     setAllCustomers(getAll());
   }, []);
 
-  const [selectRow, setSelectRow] = useState(null);
+  const [selectRow, setSelectRow] = useState(undefined);
   const [customers, setAllCustomers] = useState([]);
   const [selectedCustomer, setSelectedCustomer] = useState({
     name: '',
