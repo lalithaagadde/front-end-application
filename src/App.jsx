@@ -53,7 +53,7 @@ function App() {
   }
 
   function handleCancel() {
-    handleListClick(null);
+    handleListClick(undefined);
     setSelectedCustomer({
       name: '',
       email: '',
@@ -63,7 +63,7 @@ function App() {
 
   function handleListClick(index, arrId) {
     if (selectRow === index) {
-      setSelectRow(null);
+      setSelectRow(undefined);
       setSelectedCustomer({
         name: '',
         email: '',
