@@ -50,6 +50,32 @@ export async function post(newCustomer, setAllCustomers) {
     addData(baseURL);
 }
 //TODO: in put(), updates an existing customer
+
+export async function put(id, updateCustomer, setAllCustomers) {
+    const myInit = {
+        method: 'PUT',
+        mode: 'cors',
+        body: JSON.stringify(updateCustomer),
+        headers: {
+            "Content-type" : "application/json"
+        }
+    };
+
+    const updateData = async (url) => {
+        try {
+            const response = await fetch(url, myInit);
+            if (!response.ok) {
+            throw new Error(`Error updating customer: ${response.status}`);
+            }
+            getAll(setAllCustomers);
+        } catch (error) 
+        {
+            alert(error);
+        }
+    }
+    updateData(`${baseURL}/${id}`);
+}
+
 //TODO: in deleteById(), deletes an existing customer
 
 export async function deleteById(id, setAllCustomers) {

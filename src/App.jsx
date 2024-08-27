@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import './App.css'
-import { get, put } from './memdb'
-import { getAll, deleteById, post } from './restdb'
+import { getAll, deleteById, post, put } from './restdb'
 import CustomerList from './components/CustomerList.jsx'
 import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
 
@@ -44,10 +43,9 @@ function App() {
     }
     else
     {
-      put(selectRow, selectedCustomer)
+      put(selectRow, selectedCustomer, setAllCustomers)
       setSelectRow(undefined)
       setSelectedCustomer({ name: "", email: "", password: "" })
-      setAllCustomers(getAll());
       console.log("Do a put")
     }
   }
