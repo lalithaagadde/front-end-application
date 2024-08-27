@@ -31,10 +31,18 @@ function App() {
 
   function handleSave() {
     if (mode === "Add"){
+      post(selectedCustomer)
+      setSelectRow(undefined)
+      setSelectedCustomer({ name: "", email: "", password: "" })
+      setAllCustomers(getAll());
       console.log("Do a post")
     }
     else
     {
+      put(selectRow, selectedCustomer)
+      setSelectRow(undefined)
+      setSelectedCustomer({ name: "", email: "", password: "" })
+      setAllCustomers(getAll());
       console.log("Do a put")
     }
     console.log("in onSaveClick()");
