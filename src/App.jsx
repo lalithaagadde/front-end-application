@@ -16,9 +16,13 @@ function App() {
     email: '',
     password: ''
   });
+  const [arrId, setArrId] = useState(undefined);
 
-  console.log({ selectRow })
-  console.log({ selectedCustomer })
+  console.log( "Selected Row Id: ", selectRow );
+  console.log("Array Id: ", arrId);
+  console.log({ selectedCustomer });
+  console.log({ customers });
+  
   const mode = selectedCustomer.id >= 0 ? "Update" : "Add"
 
   function handleDelete(selectRow) {
@@ -57,7 +61,7 @@ function App() {
     });
   }
 
-  function handleListClick(index) {
+  function handleListClick(index, arrId) {
     if (selectRow === index) {
       setSelectRow(null);
       setSelectedCustomer({
@@ -68,6 +72,7 @@ function App() {
     } else {
       setSelectRow(index);
       setSelectedCustomer(customers[index]);
+      setArrId(arrId);
     }
   }
 
@@ -91,7 +96,7 @@ function App() {
             </thead>
             <tbody>
               {customers.map((customer, index) => (
-                <tr key={index} onClick={() => handleListClick(index)} className={selectRow === index ? 'selected-row' : ''}>
+                <tr key={index} onClick={() => handleListClick(index, customer.id)} className={selectRow === index ? 'selected-row' : ''}>
                   <td>{customer.name}</td>
                   <td>{customer.email}</td>
                   <td>{customer.password}</td>
@@ -124,7 +129,7 @@ function App() {
             </div>
 
             <div>
-              <button type='button' onClick={() => handleDelete(selectRow)}>Delete</button>
+              <button type='button' onClick={() => handleDelete(arrId)}>Delete</button>
               <button type='button' onClick={() => handleSave()}>Save</button>
               <button type='button' onClick={() => handleCancel()}>Cancel</button>
             </div>
