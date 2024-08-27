@@ -9,7 +9,7 @@ import CustomerAddUpdateForm from './components/CustomerAddUpdateForm.jsx'
 function App() {
 
   useEffect(() => {
-    getAll(setAllCustomers)
+    getAll(setAllCustomers);
   }, []);
 
   const [selectRow, setSelectRow] = useState(undefined);
