@@ -19,6 +19,7 @@ function App() {
 
   console.log({ selectRow })
   console.log({ selectedCustomer })
+  const mode = selectedCustomer.id >= 0 ? "Update" : "Add"
 
   function handleDelete(selectRow) {
     console.log("in onDeleteClick()", selectRow);
@@ -29,6 +30,13 @@ function App() {
   }
 
   function handleSave() {
+    if (mode === "Add"){
+      console.log("Do a post")
+    }
+    else
+    {
+      console.log("Do a put")
+    }
     console.log("in onSaveClick()");
   }
 
@@ -85,7 +93,7 @@ function App() {
           </table>
         </div>
         <div className='container'>
-          <h2>{selectRow !== null ? "Update" : "Add"}</h2>
+          <h2>{mode}</h2>
           <form>
             <div>
               <label>
