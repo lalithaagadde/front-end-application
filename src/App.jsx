@@ -25,7 +25,7 @@ function App() {
   console.log({ selectedCustomer });
   console.log({ customers });
   
-  const mode = selectedCustomer.id >= 0 ? "Update" : "Add";
+  const mode = selectedCustomer._id !== undefined ? "Update" : "Add";
 
   function handleDelete(selectRow) {
     deleteById(selectRow, setAllCustomers);
