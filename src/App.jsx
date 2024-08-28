@@ -28,7 +28,7 @@ function App() {
   const mode = selectedCustomer._id !== undefined ? "Update" : "Add";
 
   function handleDelete(selectRow) {
-    deleteById(selectRow, setAllCustomers);
+    deleteById(selectedCustomer._id, setAllCustomers);
     setSelectRow(undefined)
     setSelectedCustomer({ name: "", email: "", password: "" })
   }
