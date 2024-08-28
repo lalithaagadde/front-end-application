@@ -60,7 +60,7 @@ export async function put(id, updateCustomer, setAllCustomers) {
             "Content-type" : "application/json"
         }
     };
-
+    console.log(updateCustomer)
     const updateData = async (url) => {
         try {
             const response = await fetch(url, myInit);
@@ -70,6 +70,7 @@ export async function put(id, updateCustomer, setAllCustomers) {
             getAll(setAllCustomers);
         } catch (error) 
         {
+            console.log("inside catch")
             alert(error);
         }
     }

@@ -43,7 +43,7 @@ function App() {
     }
     else
     {
-      put(selectRow, selectedCustomer, setAllCustomers)
+      put(selectedCustomer._id, selectedCustomer, setAllCustomers)
       setSelectRow(undefined)
       setSelectedCustomer({ name: "", email: "", password: "" })
       console.log("Do a put")
