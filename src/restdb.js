@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:4000/customers';
+const baseURL = 'http://localhost:3000/api/customers';
 
 export async function getAll(setAllCustomers) {
 
