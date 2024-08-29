@@ -5,21 +5,19 @@ export default function CustomerList(props){
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredList, setFilteredList] = useState(customers);
 
-  useEffect(() => {
-    setFilteredList(props.data); // Initialize with all customers
+  useEffect(() => { //although we initialised using useState, we need this for re-render. else it wont show all the customers once we refresh (i.e., when it is re-rendered!)
+    setFilteredList(props.data); 
 }, [props.data]);
 
   function handleSearch(e) {
     setSearchQuery(e.target.value);
     const preFilteredList = props.data.filter(customer => (
-      customer.name.toLowerCase().includes(searchQuery) ||
-      customer.email.toLowerCase().includes(searchQuery) 
+      customer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      customer.email.toLowerCase().includes(searchQuery.toLowerCase()) 
     ));
-
     setFilteredList(preFilteredList);
   }
-
-
+  
     return(
         <div className='container-list'>
           <input 
